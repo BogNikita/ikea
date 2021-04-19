@@ -36,12 +36,8 @@ const userData = {
     },
     
     set deleteItemCart(idd) {
-        let index = -1;
-        this.cartList.forEach((item,i) => {
-            if (item.id === idd);
-            index = i;
-        } );
-        this.cartList.splice(index, 1);
+        const find = this.cartList.findIndex(item => item.id === idd)
+        this.cartList.splice(find, 1);
         setLocalStorage('cartlist', this._cartListData);
     }
 }
